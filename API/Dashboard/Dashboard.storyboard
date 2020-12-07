@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dashboard View Controller-->
+        <scene sceneID="5ie-mT-rXM">
+            <objects>
+                <viewController storyboardIdentifier="DashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q9S-B9-BSq" customClass="DashboardViewController" customModule="API" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2qi-mp-jkp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6F-Ol-8vL">
+                                <rect key="frame" x="20" y="138" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-i9-gTZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mt-AB-Acv" customClass="GADBannerView">
+                                <rect key="frame" x="47" y="792" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="My2-Pp-NoO"/>
+                                    <constraint firstAttribute="width" constant="320" id="qSi-36-Ewv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="g9t-fj-Tyj" firstAttribute="bottom" secondItem="8mt-AB-Acv" secondAttribute="bottom" constant="20" id="9WP-LM-6ge"/>
+                            <constraint firstItem="g9t-fj-Tyj" firstAttribute="bottom" secondItem="Y1o-i9-gTZ" secondAttribute="bottom" id="CtX-SC-AHK"/>
+                            <constraint firstItem="g9t-fj-Tyj" firstAttribute="trailing" secondItem="Y1o-i9-gTZ" secondAttribute="trailing" id="JGr-KO-308"/>
+                            <constraint firstItem="j6F-Ol-8vL" firstAttribute="leading" secondItem="g9t-fj-Tyj" secondAttribute="leading" constant="20" id="PUk-Ut-xN8"/>
+                            <constraint firstItem="8mt-AB-Acv" firstAttribute="centerX" secondItem="Y1o-i9-gTZ" secondAttribute="centerX" id="d9e-bD-JWN"/>
+                            <constraint firstItem="Y1o-i9-gTZ" firstAttribute="top" secondItem="g9t-fj-Tyj" secondAttribute="top" id="ewA-C8-BiV"/>
+                            <constraint firstItem="Y1o-i9-gTZ" firstAttribute="leading" secondItem="g9t-fj-Tyj" secondAttribute="leading" id="lP1-EP-jdo"/>
+                            <constraint firstItem="j6F-Ol-8vL" firstAttribute="top" secondItem="g9t-fj-Tyj" secondAttribute="top" constant="50" id="pNe-ge-5yL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g9t-fj-Tyj"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oSm-KR-bZd">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="YlA-pZ-eUq">
+                            <connections>
+                                <action selector="hamburgMenu:" destination="q9S-B9-BSq" id="oGM-0V-QVR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="oaz-g4-ITl">
+                            <connections>
+                                <action selector="btnLogoutTabbed:" destination="q9S-B9-BSq" id="ldF-xo-xqg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bannerView" destination="8mt-AB-Acv" id="FiV-pi-Kph"/>
+                        <outlet property="labelName" destination="j6F-Ol-8vL" id="pey-ap-2rw"/>
+                        <outlet property="webLeading" destination="lP1-EP-jdo" id="fLF-5w-2gG"/>
+                        <outlet property="webPage" destination="Y1o-i9-gTZ" id="quc-w5-nsx"/>
+                        <outlet property="webTrailing" destination="JGr-KO-308" id="bqQ-VQ-6UZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7e7-Sc-Pc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HZE-3g-wSf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JGx-5I-lYF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="beN-fl-sBF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q9S-B9-BSq" kind="relationship" relationship="rootViewController" id="1OE-J3-PBK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ys-UY-VJ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-675.36231884057975" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+    </resources>
+</document>
